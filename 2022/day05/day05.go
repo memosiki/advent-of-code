@@ -12,7 +12,7 @@ func reverse[G []T, T constraints.Ordered](container G) {
 	}
 }
 func main() {
-	dock := [][]rune{
+	dock := [...][]rune{
 		/* Generated with get_init.py */
 		{},
 		{'S', 'Z', 'P', 'D', 'L', 'B', 'F', 'C'},
