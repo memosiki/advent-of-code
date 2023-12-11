@@ -1,7 +1,6 @@
+import platform
 import sys
 from enum import Enum, auto
-
-import platform
 
 if platform.python_implementation() == "PyPy":
     from strenum import StrEnum
