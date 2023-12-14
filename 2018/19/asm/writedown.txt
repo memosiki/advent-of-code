@@ -1,0 +1,39 @@
+[   0   0   0   0   16   0]
+                    ^
+
+0  addi 4 16 4          set [ip]    + 16            jump +16
+1  seti 1 4 3           set [3]     1
+2  seti 1 3 5           set [5]     1
+3  mulr 3 5 1           set [1]     [3] * [5]
+4  eqrr 1 2 1           set [1]     0 ? 1
+5  addr 1 4 4           set [ip]    + [1]           jump +[1]
+6  addi 4 1 4           set [ip]    + 1             jump +1
+7  addr 3 0 0           set [0]     [3]+[0]
+8  addi 5 1 5           set [5]     +1
+9  gtrr 5 2 1           set [1]     0 ? 1
+10 addr 4 1 4           set [ip]    + [1]           jump +[1]
+11 seti 2 9 4           set [ip]    [2]             jump [2]
+12 addi 3 1 3           set [3]     +1
+13 gtrr 3 2 1           set [1]     0 ? 1
+14 addr 1 4 4           set 
+15 seti 1 6 4
+16 mulr 4 4 4
+17 addi 2 2 2
+18 mulr 2 2 2
+19 mulr 4 2 2
+20 muli 2 11 2
+21 addi 1 2 1
+22 mulr 1 4 1
+23 addi 1 7 1
+24 addr 2 1 2
+25 addr 4 0 4
+26 seti 0 8 4
+27 setr 4 3 1
+28 mulr 1 4 1
+29 addr 4 1 1
+30 mulr 4 1 1
+31 muli 1 14 1
+32 mulr 1 4 1
+33 addr 2 1 2
+34 seti 0 3 0
+35 seti 0 6 4

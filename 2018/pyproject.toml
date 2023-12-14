@@ -1,0 +1,11 @@
+[tool.isort]
+extend_skip_glob = "venv*"
+profile = "black"
+
+[tool.black]
+exclude = "venv*"
+
+[tool.ruff]
+exclude = [
+    "venv*",
+]

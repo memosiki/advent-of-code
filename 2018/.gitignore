@@ -1,0 +1,9 @@
+.idea
+.ruff_cache
+*.egg-info/
+venv*
+*.pyc
+*.obj
+*.exe
+*.o
+*.out
