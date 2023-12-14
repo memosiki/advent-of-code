@@ -7,7 +7,8 @@ def translate(line: str):
 
 def pprint(line: bytes | bytearray, offset=None):
     translation = {0: '.', 1: '#'}
-    if offset: print(f"{offset:+>6} -->", end='')
+    if offset:
+        print(f"{offset:+>6} -->", end='')
     print(*map(translation.get, line), sep='')
 
 
