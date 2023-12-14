@@ -1,6 +1,6 @@
+import itertools
 import re
 import sys
-import itertools
 from functools import reduce
 
 directions = tuple(map(lambda x: x == "R", input()))

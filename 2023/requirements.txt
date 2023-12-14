@@ -1,0 +1,4 @@
+numpy
+tqdm
+
+aoc-glue # local

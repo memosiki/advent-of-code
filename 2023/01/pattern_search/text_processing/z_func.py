@@ -37,7 +37,7 @@ def z_func(line: str) -> List[int]:
                 """
                 It is known that
                 i + Z[i] > R
-                so the first symbol checked is R  
+                so the first symbol checked is R
                 """
                 R = Z[i] + i
                 while R < n and line[Z[i]] == line[R]:

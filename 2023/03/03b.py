@@ -4,9 +4,8 @@ from pprint import pprint
 
 GEAR = "*"
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     gears = defaultdict(list)
-
 
     def process_line(line_id: int, prev: str, curr: str, next: str) -> int:
         parts_sum = 0
@@ -36,7 +35,6 @@ if __name__ == '__main__':
             attach_gears(line_id, num, first_pos, end=first_pos + digits - 1)
         return parts_sum
 
-
     prev, next = "", ""
     curr = input()
     line_id = 0
@@ -49,5 +47,7 @@ if __name__ == '__main__':
     process_line(line_id, prev, curr, next)
 
     pprint(gears)
-    answer = sum(details[0] * details[1] for details in gears.values() if len(details) == 2)
+    answer = sum(
+        details[0] * details[1] for details in gears.values() if len(details) == 2
+    )
     print(answer)

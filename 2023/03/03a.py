@@ -1,11 +1,10 @@
-import sys
 import string
+import sys
 
 ALPHABET = string.digits + "."
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     answer = 0
-
 
     def process_line(prev: str, curr: str, next: str) -> int:
         parts_sum = 0
@@ -17,7 +16,8 @@ if __name__ == '__main__':
                 if next and next[i] not in ALPHABET:
                     return True
             return (start > 0 and curr[start - 1] not in ALPHABET) or (
-                    end + 1 < len(curr) and curr[end + 1] not in ALPHABET)
+                end + 1 < len(curr) and curr[end + 1] not in ALPHABET
+            )
 
         num, first_pos, digits = 0, 0, 0
         for i in range(len(curr)):
@@ -34,7 +34,6 @@ if __name__ == '__main__':
             if is_part_num(first_pos, end=first_pos + digits - 1):
                 parts_sum += num
         return parts_sum
-
 
     prev, next = "", ""
     curr = input()

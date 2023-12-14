@@ -1,8 +1,8 @@
-import sys
-import operator
 import functools
+import operator
+import sys
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     answer = 0
     for game in sys.stdin:
         counts = {"red": 0, "green": 0, "blue": 0}

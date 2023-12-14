@@ -1,6 +1,4 @@
 import sys
-from pprint import pprint
-
 from typing import Iterable
 
 _, seeds = input().split(": ")
@@ -17,13 +15,13 @@ for line in sys.stdin:
         _ = input()
         continue
     dst, src, size = map(int, line.split())
-    relation_chain[-1].add((range(src, src + size), dst-src))
+    relation_chain[-1].add((range(src, src + size), dst - src))
 
 
 def resolve_chain(loc: int) -> int:
     print(loc, end="")
     for mappings in relation_chain:
-        for (loc_range, offset) in mappings:
+        for loc_range, offset in mappings:
             if loc in loc_range:
                 loc += offset
                 print("->", loc, end=" ")

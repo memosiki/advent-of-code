@@ -1,5 +1,5 @@
-from aoc_glue.input import parse_matrix
 import numpy as np
+from aoc_glue.input import parse_matrix
 
 with open("input", "r") as f:
     plate = np.array(parse_matrix(f))

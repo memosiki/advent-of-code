@@ -24,15 +24,18 @@ def difference(a: range, b: range) -> "tuple[*range]":
         return tuple()
     # b overlaps left
     if b.start <= a.start and b.stop < a.stop:
-        return range(b.stop, a.stop),
+        return (range(b.stop, a.stop),)
     # b overlaps right
     if b.start > a.start and b.stop >= a.stop:
-        return range(a.start, b.start),
+        return (range(a.start, b.start),)
     raise ValueError
 
 
 def inverse(a: range) -> tuple[range, range]:
-    return range(MIN_VAL, a.start), range(a.stop, MAX_VAL),
+    return (
+        range(MIN_VAL, a.start),
+        range(a.stop, MAX_VAL),
+    )
 
 
 def difference2(a: range, b: range) -> "tuple[*range]":
@@ -47,7 +50,7 @@ seeds = map(int, seeds.split())
 curr_groups: set[range] = set()
 next_groups: set[range] = set()
 
-for (start, size) in zip(seeds, iter(seeds)):
+for start, size in zip(seeds, iter(seeds)):
     curr_groups.add(range(start, start + size))
 
 for line in sys.stdin:

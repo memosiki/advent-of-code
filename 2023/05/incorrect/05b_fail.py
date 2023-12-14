@@ -1,13 +1,11 @@
 import sys
-from pprint import pprint
-from typing import Iterable
 
 import tqdm
 
 _, seeds = input().split(": ")
 seeds = map(int, seeds.split())
 seedgroups: list[range] = []
-for (start, size) in zip(seeds, iter(seeds)):
+for start, size in zip(seeds, iter(seeds)):
     seedgroups.append(range(start, start + size))
 
 # list of tuples containing ranges and relating offset
@@ -26,7 +24,7 @@ for line in sys.stdin:
 
 def unresolve_chain(loc: int) -> int:
     for mappings in reversed(relation_chain):
-        for (loc_range, offset) in mappings:
+        for loc_range, offset in mappings:
             if loc - offset in loc_range:
                 loc -= offset
                 break
@@ -37,7 +35,7 @@ def unresolve_chain_print(loc: int) -> int:
     print(loc, end="")
 
     for mappings in reversed(relation_chain):
-        for (loc_range, offset) in mappings:
+        for loc_range, offset in mappings:
             if loc - offset in loc_range:
                 loc -= offset
                 print("->", loc, end=" ")

@@ -1,10 +1,11 @@
 import sys
+
 import tqdm
 
 _, seeds = input().split(": ")
 seeds = map(int, seeds.split())
 seedgroups = []
-for (start, size) in zip(seeds, iter(seeds)):
+for start, size in zip(seeds, iter(seeds)):
     seedgroups.append(tqdm.trange(start, start + size))
 
 # list of tuples containing ranges and relating offset
@@ -23,7 +24,7 @@ for line in sys.stdin:
 
 def resolve_chain(loc: int) -> int:
     for mappings in relation_chain:
-        for (loc_range, offset) in mappings:
+        for loc_range, offset in mappings:
             if loc in loc_range:
                 loc += offset
                 break

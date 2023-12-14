@@ -1,6 +1,6 @@
 import sys
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     MAX_COUNTS = {
         "red": 12,
         "green": 13,

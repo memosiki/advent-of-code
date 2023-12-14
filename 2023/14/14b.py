@@ -1,9 +1,8 @@
 import itertools
 from enum import IntEnum
 
-from numpy.typing import NDArray
-
 import numpy as np
+from numpy.typing import NDArray
 
 with open("input", "r") as fd:
     matrix = [bytearray(line.rstrip(), encoding="utf-8") for line in fd]
