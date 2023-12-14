@@ -86,4 +86,5 @@ plate = plates[time]
 
 load = calc_load(deserialize(plate))
 
+print(f"{cycle=}")
 print("Load", load)
