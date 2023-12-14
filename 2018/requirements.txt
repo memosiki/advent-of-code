@@ -1,0 +1,6 @@
+numpy
+tqdm
+python-ranges
+
+aoc-glue # local
+
