@@ -1,3 +1,5 @@
+from tqdm import tqdm
+
 import arch
 from aoc_glue.input import parse_ints
 
@@ -14,26 +16,25 @@ with open("input", "r") as fd:
         instructions.append(arch.opcodes[opcode_name])
         params.append((a, b, c))
 
-arch.reg[0] = 0  # task 2 = 1
-
-
-# 19.1 = 0
-# 19.2 = 1
-# 21.1 = 12420065
-# 21.2 = 1670686
 
 def to_str(reg: list[int]) -> str:
     return ' '.join(f"{num:<10}" for num in reg)
 
 
-print(f"ip=0   {to_str(arch.reg)} INITIAL")
-while True:
+# print(f"ip=0   {to_str(arch.reg)} INITIAL")
+max_iter = 10_000_000
+for i in tqdm(range(max_iter), ascii=True):
     ip = arch.reg[bound_reg]
-    if ip >= len(instructions):
-        # halt
-        break
     instructions[ip](*params[ip])
-    arch.reg[bound_reg] += 1
-    print(f"{ip=:<3} {to_str(arch.reg)} {instructions[ip].__name__} {params[ip]}")
+    if ip == 12:
+        # reg4_list.append(arch.reg[4])
+        print(f"{arch.reg[5]:<10} {arch.reg[4]}")
+        # print(f"{ip=:<3} {to_str(arch.reg)} {instructions[ip].__name__} {params[ip]}")
 
-print(f"{arch.reg[0]=}")
+    arch.reg[bound_reg] += 1
+# print(reg4_list)
+# print(f"{len(reg4_list)=} {len(set(reg4_list))=}")
+# #
+
+# print("Total unique", len(seen_reg4), seen_order)
+# print("Latest reg4", seen_order[-1])
