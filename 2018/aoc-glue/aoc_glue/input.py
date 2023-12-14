@@ -11,3 +11,4 @@ def parse_ints(line: str) -> List[int]:
 
 def parse_matrix(fd=sys.stdin) -> list[list[str]]:
     return [list(line.rstrip()) for line in fd]
+

@@ -14,6 +14,14 @@ with open("input", "r") as fd:
         instructions.append(arch.opcodes[opcode_name])
         params.append((a, b, c))
 
+arch.reg[0] = 1  # task 2
+
+
+def to_str(reg: list[int]) -> str:
+    return ' '.join(f"{num:<10}" for num in reg)
+
+
+print(f"ip=0   {to_str(arch.reg)} INITIAL")
 while True:
     ip = arch.reg[bound_reg]
     if ip >= len(instructions):
@@ -21,6 +29,6 @@ while True:
         break
     instructions[ip](*params[ip])
     arch.reg[bound_reg] += 1
-    print(f"{ip=:<3} {str(arch.reg):<40} {instructions[ip].__name__} {params[ip]}")
+    print(f"{ip=:<3} {to_str(arch.reg)} {instructions[ip].__name__} {params[ip]}")
 
 print(f"{arch.reg[0]=}")
