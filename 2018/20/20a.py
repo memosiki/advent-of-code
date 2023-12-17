@@ -1,9 +1,10 @@
+from collections import defaultdict
 from dataclasses import dataclass, field
 
-regex = "^ENNWSWW(NEWS|)SSSEEN(WNSE|)EE(SWEN|)NNN$"
-#
-# with open("input", "r") as fd:
-#     regex = fd.readline().rstrip()
+# regex = "^ENNWSWW(NEWS|)SSSEEN(WNSE|)EE(SWEN|)NNN$"
+
+with open("input", "r") as fd:
+    regex = fd.readline().rstrip()
 regex = regex.strip("^$")
 OPERATIONS = ("|", "+")
 
@@ -134,7 +135,7 @@ print(root.to_graph())
 
 # DFS
 stack = []
-seen: dict[tuple, int] = {}
+seen: dict[tuple, int] = defaultdict(lambda: float("inf"))
 stack.append(root)
 # x = y = 0
 root.parent = Node("")  # fake node
@@ -157,15 +158,15 @@ while stack:
         case "|":
             stack.append(node.right)
             stack.append(node.left)
-            node.right.depths = node.depths.copy()
             node.left.depths = node.depths.copy()
+            node.right.depths = node.depths.copy()
         case _:
             assert node.left is None and node.right is None
             for (x, y), depth in node.depths.items():
                 for char in node.token:
                     depth += 1
                     x, y = move(x, y, char)
-                    seen[(x, y)] = min(seen.get((x, y), float("inf")), depth)
+                    seen[(x, y)] = min(seen[(x, y)], depth)
                 # node.parent.depths[(x, y)] = min(seen.get((x, y), float("inf")), depth)
 print(seen)
 print("Deepest", max(seen.values()))

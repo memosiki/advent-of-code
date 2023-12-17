@@ -126,16 +126,16 @@ def flow(x, y):
 
         # trapped water
         if (
-                direction[y][x] == Direction.left
-                and cant_flow(x - 1, y)
-                and cant_flow(x, y + 1)
+            direction[y][x] == Direction.left
+            and cant_flow(x - 1, y)
+            and cant_flow(x, y + 1)
         ):
             flood(x, y)
             continue
         if (
-                direction[y][x] == Direction.right
-                and cant_flow(x + 1, y)
-                and cant_flow(x, y + 1)
+            direction[y][x] == Direction.right
+            and cant_flow(x + 1, y)
+            and cant_flow(x, y + 1)
         ):
             flood(x, y)
             continue
@@ -154,16 +154,16 @@ def flow(x, y):
 
         # flow right or left
         if (
-                direction[y][x] != Direction.right
-                and direction[y][x - 1] != Direction.right
-                and can_flow(x - 1, y)
+            direction[y][x] != Direction.right
+            and direction[y][x - 1] != Direction.right
+            and can_flow(x - 1, y)
         ):
             direction[y][x - 1] = Direction.left
             queue.put((x - 1, y))
         if (
-                direction[y][x] != Direction.left
-                and direction[y][x + 1] != Direction.left
-                and can_flow(x + 1, y)
+            direction[y][x] != Direction.left
+            and direction[y][x + 1] != Direction.left
+            and can_flow(x + 1, y)
         ):
             direction[y][x + 1] = Direction.right
             queue.put((x + 1, y))

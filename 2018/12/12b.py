@@ -2,14 +2,14 @@ from collections import defaultdict
 
 
 def translate(line: str):
-    return bytes(char == '#' for char in line)
+    return bytes(char == "#" for char in line)
 
 
 def pprint(line: bytes | bytearray, offset=None):
-    translation = {0: '.', 1: '#'}
+    translation = {0: ".", 1: "#"}
     if offset:
-        print(f"{offset:+>6} -->", end='')
-    print(*map(translation.get, line), sep='')
+        print(f"{offset:+>6} -->", end="")
+    print(*map(translation.get, line), sep="")
 
 
 rules = defaultdict(int)
@@ -24,7 +24,7 @@ with open("input", "r") as fd:
 
 def apply_rules_inplace(pots: bytes, new_pots: bytearray):
     for i in range(len(pots) - 5):
-        new_pots[i + 2] = rules[pots[i:i + 5]]
+        new_pots[i + 2] = rules[pots[i : i + 5]]
 
 
 def find_not():
@@ -32,8 +32,8 @@ def find_not():
 
 
 seen: dict[bytes, (int, int)] = {}
-empty = b'\x00'
-plant = b'\x01'
+empty = b"\x00"
+plant = b"\x01"
 time = 0
 offset = 0  # offset from original left border position
 while True:

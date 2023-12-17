@@ -18,7 +18,7 @@ with open("input", "r") as fd:
 
 
 def to_str(reg: list[int]) -> str:
-    return ' '.join(f"{num:<10}" for num in reg)
+    return " ".join(f"{num:<10}" for num in reg)
 
 
 # print(f"ip=0   {to_str(arch.reg)} INITIAL")

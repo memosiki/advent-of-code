@@ -22,8 +22,9 @@ arch.reg[0] = 0  # task 2 = 1
 # 21.1 = 12420065
 # 21.2 = 1670686
 
+
 def to_str(reg: list[int]) -> str:
-    return ' '.join(f"{num:<10}" for num in reg)
+    return " ".join(f"{num:<10}" for num in reg)
 
 
 print(f"ip=0   {to_str(arch.reg)} INITIAL")
