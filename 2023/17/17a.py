@@ -20,7 +20,7 @@ def move(dir, x, y):
 print(field)
 turns = {0: (0, 1, 3), 1: (0, 1, 2), 2: (1, 2, 3), 3: (0, 2, 3)}
 (N, M) = field.shape
-assert N == M
+# assert N == M
 # 4 additional dimensions for direction and 0...3 for consecutive steps in that direction
 visited = np.full((*field.shape, 4, 4), np.inf)
 target = (N - 1, M - 1)
