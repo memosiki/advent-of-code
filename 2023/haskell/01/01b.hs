@@ -13,14 +13,15 @@ safeMinimum x = minimum x
 search :: (Eq a) => [a] -> [a] -> [Int]
 search haystack needle = findIndices (isPrefixOf needle) (tails haystack)
 
-calibrate line = do
+calibrate :: (Num a, Enum a) => [Char] -> a
+calibrate line = 
   let lookup x = (x, search line x)
-  let findings = map lookup patterns
-  let leftPattern = snd $ minimum [(safeMinimum pos, key) | (key, pos) <- findings]
-  let rightPattern = snd $ maximum [(safeMaximum pos, key) | (key, pos) <- findings]
-  let left = fromJust $ Map.lookup leftPattern spell
-  let right = fromJust $ Map.lookup rightPattern spell
-  left * 10 + right
+      findings = map lookup patterns
+      leftPattern = snd $ minimum [(safeMinimum pos, key) | (key, pos) <- findings]
+      rightPattern = snd $ maximum [(safeMaximum pos, key) | (key, pos) <- findings]
+      left = fromJust $ Map.lookup leftPattern spell
+      right = fromJust $ Map.lookup rightPattern spell
+  in left * 10 + right
   where
     patterns = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"] ++ map show [1 .. 9]
     spell = Map.fromList $ zip patterns (cycle [1 .. 9])
