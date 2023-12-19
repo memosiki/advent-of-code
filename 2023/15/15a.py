@@ -7,9 +7,6 @@ def hash(line: bytes) -> int:
 
 
 with open("input", "r") as fd:
-    answer = sum(
-        hash(bytes(line, encoding="utf-8"))
-        for line in fd.readline().rstrip().split(",")
-    )
+    answer = sum(hash(bytes(line, encoding="utf-8")) for line in fd.readline().rstrip().split(","))
 
 print(answer)

@@ -47,7 +47,5 @@ if __name__ == "__main__":
     process_line(line_id, prev, curr, next)
 
     pprint(gears)
-    answer = sum(
-        details[0] * details[1] for details in gears.values() if len(details) == 2
-    )
+    answer = sum(details[0] * details[1] for details in gears.values() if len(details) == 2)
     print(answer)

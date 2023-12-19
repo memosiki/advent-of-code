@@ -48,9 +48,7 @@ class Node:
 
 
 with open("input", "r") as fd:
-    lenses = [
-        (bytes(line, encoding="utf-8")) for line in fd.readline().rstrip().split(",")
-    ]
+    lenses = [(bytes(line, encoding="utf-8")) for line in fd.readline().rstrip().split(",")]
 
 hashmap = [Node() for _ in range(256)]
 for lens in lenses:
