@@ -1,0 +1,11 @@
+.idea/
+.vscode/
+
+.venv/
+venv/
+
+*.egg-info/
+build/
+
+uv.lock
+.python-version
