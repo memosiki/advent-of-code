@@ -1,22 +1,11 @@
 import itertools
 import operator
 import sys
-from collections import deque
-from typing import Iterable, Generator, TextIO
+from typing import Generator, TextIO
 
+from aoc_glue.itertools import npairwise
 
 # online-solution, like adaptive Huffman
-
-
-def npairwise[T](data: Iterable[T], batch: int = 2) -> Generator[tuple[T, ...]]:
-    iterator = iter(data)
-    sentinel = object()
-    window = deque(itertools.islice(data, batch - 1), maxlen=batch)
-    elem = next(iterator, sentinel)
-    while elem is not sentinel:
-        window.append(elem)
-        yield tuple(window)
-        elem = next(iterator, sentinel)
 
 
 def reader(fd: TextIO = sys.stdin) -> Generator[int]:
