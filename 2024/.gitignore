@@ -3,6 +3,7 @@
 
 .venv/
 venv/
+.pypy/
 
 *.egg-info/
 build/

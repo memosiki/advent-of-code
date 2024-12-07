@@ -1,13 +1,10 @@
 import enum
+import platform
 
-# if platform.python_implementation() == "PyPy":
-#     from strenum import StrEnum
-# else:
-#     from enum import StrEnum
-
-
-#
-# class AnnotatedEnumMeta:
+if platform.python_implementation() == "PyPy":
+    from strenum import StrEnum as StrEnum
+else:
+    from enum import StrEnum as StrEnum
 
 
 class AnnotatedEnum(enum.Enum):

@@ -2,7 +2,6 @@ import re
 import sys
 from typing import List
 
-import numpy as np
 
 int_template = re.compile(r"(-?\d+)")
 
@@ -15,5 +14,7 @@ def parse_matrix(fd=sys.stdin) -> list[list[str]]:
     return [list(line.rstrip()) for line in fd]
 
 
-def parse_np_matrix(fd=sys.stdin, dtype=int) -> np.ndarray:
+def parse_np_matrix(fd=sys.stdin, dtype=int):
+    import numpy as np
+
     return np.array([list(map(dtype, line.rstrip())) for line in fd])
