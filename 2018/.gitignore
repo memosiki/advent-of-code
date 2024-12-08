@@ -1,0 +1,12 @@
+.idea/
+.ruff_cache/
+*.egg-info/
+build/
+venv*
+*.pyc
+*.obj
+*.exe
+*.o
+*.out
+
+input
