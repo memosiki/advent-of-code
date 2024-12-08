@@ -1,0 +1,6 @@
+numpy
+tqdm
+python-ranges
+frozendict
+
+aoc-glue # local
