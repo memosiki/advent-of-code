@@ -1,0 +1,12 @@
+.idea/
+.vscode/
+
+.venv/
+venv/
+
+*.egg-info/
+build/
+__pycache__/
+
+uv.lock
+.python-version
