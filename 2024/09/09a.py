@@ -22,10 +22,12 @@ if __name__ == "__main__":
             for i in range(disk[lhs]):
                 hashsum += fileid_left * pos
                 pos += 1
-                # pos_right += disk
             segment_empty = disk[lhs + 1]
             fileid_left += 1
             lhs += 2
+
+        if fileid_left >= fileid_right:
+            break
 
         # rightside segment ended, looking for new one
         while not filepart:
